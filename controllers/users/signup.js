@@ -18,7 +18,6 @@ module.exports = {
       await users.create(option);
       res.status(200).send({ success: "계정이 생성되었습니다" });
     } catch (err) {
-      console.log(err);
       next();
     }
   },

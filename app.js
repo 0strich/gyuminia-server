@@ -5,6 +5,7 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 
 const usersRouter = require("./routes/users");
+const charactersRouter = require("./routes/characters");
 
 require("dotenv").config();
 
@@ -52,6 +53,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(sessionMiddleware);
 
 app.use("/users", usersRouter);
+app.use("/characters", charactersRouter);
 
 app.get("/", (req, res) => {
   res.status(200).send("Root Path");
