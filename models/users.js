@@ -1,5 +1,5 @@
 "use strict";
-const bcrpyt = require("bcrypt");
+const crypto = require("crypto");
 require("dotenv").config();
 
 module.exports = (sequelize, DataTypes) => {
@@ -14,22 +14,24 @@ module.exports = (sequelize, DataTypes) => {
     {
       hooks: {
         beforeCreate: (data, option) => {
-          // use bycrypt
-          const hash = bcrpyt.hashSync(data.password, 8);
-          data.password = hash;
+          var shasum = crypto.createHmac("sha512", "thisismysecretkey");
+          shasum.update(data.password);
+          data.password = shasum.digest("hex");
+          console.log("changed ==> ", data.password);
         },
         beforeFind: (data, option) => {
-          // use bycrypt
           if (data.where.password) {
-            const hash = bcrpyt.hashSync(data.password, 8);
-            data.where.password = hash;
+            var shasum = crypto.createHmac("sha512", "thisismysecretkey");
+            shasum.update(data.where.password);
+            data.where.password = shasum.digest("hex");
+            console.log("changed ==> ", data.where.password);
           }
         },
       },
     }
   );
   users.associate = function (models) {
-    // associations can be defined here
+    users.hasMany(models.characters, { foreignKey: "userId" });
   };
   return users;
 };
