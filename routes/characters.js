@@ -2,6 +2,6 @@ const express = require("express");
 const router = express.Router();
 const { charactersController } = require("../controllers");
 
-router.get("/info", charactersController.info.get);
+router.post("/info", charactersController.info.post);
 
 module.exports = router;

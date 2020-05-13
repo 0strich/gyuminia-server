@@ -17,14 +17,12 @@ module.exports = (sequelize, DataTypes) => {
           var shasum = crypto.createHmac("sha512", "thisismysecretkey");
           shasum.update(data.password);
           data.password = shasum.digest("hex");
-          console.log("changed ==> ", data.password);
         },
         beforeFind: (data, option) => {
           if (data.where.password) {
             var shasum = crypto.createHmac("sha512", "thisismysecretkey");
             shasum.update(data.where.password);
             data.where.password = shasum.digest("hex");
-            console.log("changed ==> ", data.where.password);
           }
         },
       },
