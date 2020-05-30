@@ -3,8 +3,13 @@ const { users } = require("../../models");
 module.exports = {
   post: async (req, res, next) => {
     try {
-      const { username, email, password, mobile } = req.body;
-      const option = { username, email, password, mobile };
+      const { username, password, email, mobile } = req.body;
+      const option = { username, password, email, mobile };
+
+      console.log("username ==> ", username);
+      console.log("password ==> ", password);
+      console.log("email ==> ", email);
+      console.log("mobile ==> ", mobile);
 
       // 중복값 체크
       const emailExist = await users.findAll({

@@ -1,7 +1,9 @@
-const signup = require("./signup");
 const login = require("./login");
+const signup = require("./signup");
+const check = require("./check");
 
 module.exports = {
-  signup,
   login,
+  signup,
+  check,
 };
