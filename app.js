@@ -32,7 +32,8 @@ const sessionMiddleware = session({
   cookie: {
     httpOnly: true,
     secure: false, // http
-    maxAge: 36000000, // 단위: ms, 현재: 10시간, 참고(3600000 === 1h)
+    // maxAge: 36000000, // 단위: ms, 현재: 10시간, 참고(3600000 === 1h)
+    maxAge: 60000, // 단위: ms, 현재: 10시간, 참고(3600000 === 1h)
   },
   store: sessionStore,
 });

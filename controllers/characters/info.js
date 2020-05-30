@@ -3,7 +3,9 @@ const { characters } = require("../../models");
 module.exports = {
   post: async (req, res, next) => {
     try {
+      console.log("char ==> ", req.body);
       if (req.session.userId) {
+        console.log(req.session);
         const info = await characters.findAll({
           where: { userId: 1 },
         });
