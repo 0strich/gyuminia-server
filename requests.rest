@@ -1,16 +1,19 @@
 GET http://localhost:5001/characters/rank
-
 ### 
-
 GET http://localhost:5001/users/check
 Authorization: Bearer
-
 ### 
-
 POST http://localhost:5001/users/login
 Content-Type: application/json
 
 {
   "email": "gee8196@gmail.com",
   "password":"1234"
+}
+###
+POST http://localhost:5001/users/token
+Content-Type: application/json
+
+{
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImdlZTgxOTZAZ21haWwuY29tIiwicGFzc3dvcmQiOiIxMjM0IiwiaWF0IjoxNTkwODM4Mjk3LCJleHAiOjE1OTQ0MzgyOTd9.RZfBJheCLgdZZdEvqas1OCxB7BK-LDex2e7KVeo6Z4c"
 }

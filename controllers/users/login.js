@@ -4,6 +4,8 @@ const Joi = require("joi");
 const generateAccessToken = require("../../lib/generatorAccessToken");
 require("dotenv").config();
 
+const refreshTokens = [];
+
 module.exports = {
   post: async (req, res, next) => {
     try {
@@ -28,6 +30,7 @@ module.exports = {
           process.env.REFRESH_TOKEN_SECRET,
           { expiresIn: "3600000s" }
         );
+        refreshTokens.push(refreshToken);
         res.status(200).send({ success: true, accessToken, refreshToken });
       } else {
         res.status(404).send({ success: false, message: "not exist" });
@@ -37,4 +40,5 @@ module.exports = {
       next();
     }
   },
+  refreshTokens,
 };
