@@ -32,8 +32,6 @@ app.use(
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-app.use(sessionMiddleware);
-
 app.use("/users", usersRouter);
 app.use("/characters", charactersRouter);
 
