@@ -1,6 +1,4 @@
 const express = require("express");
-const session = require("express-session");
-const MySQLStore = require("express-mysql-session")(session);
 const cors = require("cors");
 const bodyParser = require("body-parser");
 
@@ -20,23 +18,6 @@ const dbOptions = {
   password: process.env.DB_PASSWORD,
   database: process.env.DB_DATABASE,
 };
-
-// session middleware에 사용할 sessionStore 생성
-const sessionStore = new MySQLStore(dbOptions);
-
-// 세션 미들웨어
-const sessionMiddleware = session({
-  secret: process.env.SECRET_KEY,
-  resave: false,
-  saveUninitialized: true,
-  cookie: {
-    httpOnly: true,
-    secure: false, // http
-    // maxAge: 36000000, // 단위: ms, 현재: 10시간, 참고(3600000 === 1h)
-    maxAge: 60000, // 단위: ms, 현재: 10시간, 참고(3600000 === 1h)
-  },
-  store: sessionStore,
-});
 
 // cors 미들웨어
 app.use(
