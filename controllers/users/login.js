@@ -28,10 +28,16 @@ module.exports = {
         const refreshToken = jwt.sign(
           userInfo,
           process.env.REFRESH_TOKEN_SECRET,
-          { expiresIn: "3600000s" }
+          { expiresIn: "30s" }
         );
         refreshTokens.push(refreshToken);
-        res.status(200).send({ success: true, accessToken, refreshToken });
+        res.status(200).send({
+          success: true,
+          accessToken,
+          refreshToken,
+          userId: exist[0].id,
+          username: exist[0].username,
+        });
       } else {
         res.status(404).send({ success: false, message: "not exist" });
       }
