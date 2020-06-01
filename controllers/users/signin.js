@@ -12,35 +12,40 @@ module.exports = {
       const { username, password } = req.body;
       const userInfo = { username, password };
 
-      // validation check
       const schema = Joi.object({
-        username: Joi.string().min(3).max(20).required(),
-        password: Joi.string().required(),
+        username: Joi.string().alphanum().min(4).max(15).required(),
+        password: Joi.string().regex(/^[a-zA-Z0-9]{3,30}$/),
       });
-      const vali = Joi.validate(req.body, schema);
 
-      // account check
-      const exist = await users.findAll({ where: userInfo });
+      // validation check
+      const check = Joi.validate(req.body, schema);
 
-      if (exist[0]) {
-        // jwt accesstoken
-        const accessToken = generateAccessToken(userInfo);
-        const refreshToken = jwt.sign(
-          userInfo,
-          process.env.REFRESH_TOKEN_SECRET,
-          { expiresIn: "360000s" }
-          // { expiresIn: "20s" }
-        );
-        refreshTokens.push(refreshToken);
-        res.status(200).send({
-          success: true,
-          accessToken,
-          refreshToken,
-          userId: exist[0].id,
-          username: exist[0].username,
-        });
+      if (check.error) {
+        res.status(401).send({ error: check.error });
       } else {
-        res.status(404).send({ success: false, message: "not exist" });
+        // 계졍 확인
+        const account = await users.findOne({ where: { username } });
+
+        if (account) {
+          // jwt accesstoken
+          const accessToken = generateAccessToken(userInfo);
+          const refreshToken = jwt.sign(
+            userInfo,
+            process.env.REFRESH_TOKEN_SECRET,
+            { expiresIn: "360000s" }
+            // { expiresIn: "20s" }
+          );
+          refreshTokens.push(refreshToken);
+          res.status(200).send({
+            success: true,
+            accessToken,
+            refreshToken,
+            userId: account.id,
+            username: account.username,
+          });
+        } else {
+          res.status(404).send({ success: false, message: "not exist" });
+        }
       }
     } catch (err) {
       console.log(err);
