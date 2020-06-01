@@ -9,12 +9,12 @@ const refreshTokens = [];
 module.exports = {
   post: async (req, res, next) => {
     try {
-      const { email, password } = req.body;
-      const userInfo = { email, password };
+      const { username, password } = req.body;
+      const userInfo = { username, password };
 
       // validation check
       const schema = Joi.object({
-        email: Joi.string().min(3).max(20).required(),
+        username: Joi.string().min(3).max(20).required(),
         password: Joi.string().required(),
       });
       const vali = Joi.validate(req.body, schema);

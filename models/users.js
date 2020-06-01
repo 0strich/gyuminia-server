@@ -9,7 +9,6 @@ module.exports = (sequelize, DataTypes) => {
       username: DataTypes.STRING,
       email: DataTypes.STRING,
       password: DataTypes.STRING,
-      mobile: DataTypes.STRING,
     },
     {
       hooks: {

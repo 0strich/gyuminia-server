@@ -1,6 +1,6 @@
 const jwt = require("jsonwebtoken");
 const generateAccessToken = require("../../lib/generatorAccessToken");
-const { refreshTokens } = require("./login");
+const { refreshTokens } = require("./signin");
 require("dotenv").config();
 
 module.exports = {

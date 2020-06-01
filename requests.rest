@@ -7,11 +7,11 @@ Authorization: Bearer
 
 ### 
 
-POST http://localhost:5001/users/login
+POST http://localhost:5001/users/signin
 Content-Type: application/json
 
 {
-  "email": "gee8196@gmail.com",
+  "username": "0strich",
   "password":"1234"
 }
 
