@@ -32,3 +32,13 @@ Content-Type: application/json
 {
   "userId": 1
 }
+
+###
+
+POST http://localhost:5001/characters/newChar
+Content-Type: application/json
+
+{
+  "userId": 1 ,
+  "characterName":"test"
+}
