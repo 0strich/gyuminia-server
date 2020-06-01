@@ -42,3 +42,14 @@ Content-Type: application/json
   "userId": 1 ,
   "characterName":"test"
 }
+
+###
+
+POST http://localhost:5001/users/signup
+Content-Type: application/json
+
+{
+  "username" : "testwkjdfkdfkd",
+  "password" : "113",
+  "email" : "gee8196@naver.com"
+}

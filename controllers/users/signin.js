@@ -29,6 +29,7 @@ module.exports = {
           userInfo,
           process.env.REFRESH_TOKEN_SECRET,
           { expiresIn: "360000s" }
+          // { expiresIn: "20s" }
         );
         refreshTokens.push(refreshToken);
         res.status(200).send({
