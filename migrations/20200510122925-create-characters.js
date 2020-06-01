@@ -13,64 +13,64 @@ module.exports = {
       },
       weapon: {
         type: Sequelize.INTEGER,
-        defaulValue: null,
+        defaultValue: null,
       },
       level: {
         type: Sequelize.INTEGER,
-        defaulValue: 1,
+        defaultValue: 1,
       },
       characterName: {
         type: Sequelize.STRING,
       },
       hp: {
         type: Sequelize.INTEGER,
-        defaulValue: 100,
+        defaultValue: 100,
       },
       attack: {
         type: Sequelize.INTEGER,
-        defaulValue: 100,
+        defaultValue: 100,
       },
       defense: {
         type: Sequelize.INTEGER,
-        defaulValue: 100,
+        defaultValue: 100,
       },
       exp: {
         type: Sequelize.INTEGER,
-        defaulValue: 0,
+        defaultValue: 0,
       },
       rankScore: {
         type: Sequelize.INTEGER,
-        defaulValue: 0,
+        defaultValue: 0,
       },
       gold: {
         type: Sequelize.INTEGER,
-        defaulValue: 0,
+        defaultValue: 0,
       },
       mp: {
         type: Sequelize.INTEGER,
-        defaulValue: 100,
+        defaultValue: 100,
       },
       loginTime: {
         type: Sequelize.DATE,
-        defaulValue: null,
+        defaultValue: null,
       },
       logoutTime: {
         type: Sequelize.DATE,
-        defaulValue: null,
+        defaultValue: null,
       },
       maxHp: {
         type: Sequelize.INTEGER,
-        defaulValue: 100,
+        defaultValue: 100,
       },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,
-        defaulValue: Sequelize.NOW,
+        defaultValue: Sequelize.NOW,
       },
       updatedAt: {
         allowNull: false,
         type: Sequelize.DATE,
-        defaulValue: Sequelize.NOW,
+        defaultValue: Sequelize.NOW,
       },
     });
   },
