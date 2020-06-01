@@ -1,10 +1,10 @@
-const login = require("./login");
+const signin = require("./signin");
 const signup = require("./signup");
 const check = require("./check");
 const token = require("./token");
 
 module.exports = {
-  login,
+  signin,
   signup,
   check,
   token,

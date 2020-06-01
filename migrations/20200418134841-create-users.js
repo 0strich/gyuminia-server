@@ -17,16 +17,15 @@ module.exports = {
       password: {
         type: Sequelize.STRING,
       },
-      mobile: {
-        type: Sequelize.STRING,
-      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,
+        defaulValue: Sequelize.NOW,
       },
       updatedAt: {
         allowNull: false,
         type: Sequelize.DATE,
+        defaulValue: Sequelize.NOW,
       },
     });
   },
