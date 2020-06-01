@@ -28,7 +28,7 @@ module.exports = {
         const refreshToken = jwt.sign(
           userInfo,
           process.env.REFRESH_TOKEN_SECRET,
-          { expiresIn: "30s" }
+          { expiresIn: "360000s" }
         );
         refreshTokens.push(refreshToken);
         res.status(200).send({
