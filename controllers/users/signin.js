@@ -1,9 +1,10 @@
 const { users } = require("../../models");
 const jwt = require("jsonwebtoken");
 const Joi = require("joi");
-const generateAccessToken = require("../../lib/generatorAccessToken");
+const generateAccessToken = require("../../lib/generateAccessToken");
 require("dotenv").config();
 
+// 추후 in memory 가 아닌 방식으로 업데이트
 const refreshTokens = [];
 
 module.exports = {
@@ -28,13 +29,15 @@ module.exports = {
 
         if (account) {
           // jwt accesstoken
-          const accessToken = generateAccessToken(userInfo);
+          const payload = { username: account.username, email: account.email };
+          const accessToken = generateAccessToken(payload);
           const refreshToken = jwt.sign(
-            userInfo,
+            payload,
             process.env.REFRESH_TOKEN_SECRET,
-            { expiresIn: "360000s" }
-            // { expiresIn: "20s" }
+            // { expiresIn: "360000s" }
+            { expiresIn: "20s" }
           );
+          // 추후 in memory 가 아닌 방식으로 업데이트
           refreshTokens.push(refreshToken);
           res.status(200).send({
             success: true,
