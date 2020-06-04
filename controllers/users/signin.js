@@ -4,9 +4,6 @@ const Joi = require("joi");
 const generateAccessToken = require("../../lib/generateAccessToken");
 require("dotenv").config();
 
-// 추후 in memory 가 아닌 방식으로 업데이트
-const refreshTokens = [];
-
 module.exports = {
   post: async (req, res, next) => {
     try {
@@ -25,7 +22,7 @@ module.exports = {
         res.status(401).send({ error: check.error });
       } else {
         // 계졍 확인
-        const account = await users.findOne({ where: { username } });
+        const account = await users.findOne({ where: userInfo });
 
         if (account) {
           // jwt accesstoken
@@ -37,8 +34,6 @@ module.exports = {
             // { expiresIn: "360000s" }
             { expiresIn: "20s" }
           );
-          // 추후 in memory 가 아닌 방식으로 업데이트
-          refreshTokens.push(refreshToken);
           res.status(200).send({
             success: true,
             accessToken,
@@ -55,5 +50,4 @@ module.exports = {
       next();
     }
   },
-  refreshTokens,
 };

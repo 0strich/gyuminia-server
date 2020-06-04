@@ -60,3 +60,9 @@ GET http://localhost:5001/users/check
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IjBzdHJpY2giLCJlbWFpbCI6ImdlZTgxOTZAZ21haWwuY29tIiwiaWF0IjoxNTkxMTU1MjM2LCJleHAiOjE1OTE1MTUyMzZ9.XaKChKER89ufhXlopxgc8lmzqAvd4qj0Hnt_aWCqy4E
 # Authorization: Bearer 
+
+###
+
+GET http://localhost:5001/characters/rank
+Content-Type: application/json
+# Authorization: Bearer 
