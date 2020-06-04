@@ -1,23 +1,12 @@
 const express = require("express");
 const cors = require("cors");
 const bodyParser = require("body-parser");
-
 const usersRouter = require("./routes/users");
 const charactersRouter = require("./routes/characters");
-
 require("dotenv").config();
 
 const app = express();
 const port = 5001;
-
-// MySQLStore Options
-const dbOptions = {
-  host: process.env.DB_HOST,
-  port: process.env.DB_PORT,
-  user: process.env.DB_USERNAME,
-  password: process.env.DB_PASSWORD,
-  database: process.env.DB_DATABASE,
-};
 
 // cors 미들웨어
 app.use(
