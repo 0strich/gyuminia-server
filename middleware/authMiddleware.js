@@ -11,6 +11,7 @@ const authMiddleware = (req, res, next) => {
     const verify = new Promise((res, rej) => {
       jwt.verify(token, process.env.REFRESH_TOKEN_SECRET, (err, payload) => {
         if (err) rej(err);
+        res(payload);
       });
     });
 
