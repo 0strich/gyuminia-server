@@ -18,16 +18,16 @@ Node.js(express), Sequelize, JWT, MySql, AWS(EC2), Docker
 4. 로그인, 회원가입 api 사용시 crypto library를 사용한 비밀번호 저장, 검색
 5. Swagger를 사용한 api 명세서 작성
 
-#### 회원가입, 로그인시 Sequelize hooks로 password hashing 저장, 검색
+### 회원가입, 로그인시 Sequelize hooks로 password hashing 저장, 검색
 
-![hashing](./src/images/hashing.png)
+![hashing](./images/hashing.png)
 
-#### 로그인 accessToken, refreshToken 반환
+### 로그인 accessToken, refreshToken 반환
 
-![token](./src/images/token.png)
+![token](./images/token.png)
 
-#### Swagger를 사용한 api 명세서 작성
+### Swagger를 사용한 api 명세서 작성
 
 https://app.swaggerhub.com/apis-docs/0strich/API_Gyuminia/1.0.0#/
 
-![swagger](./src/images/swagger.png)
+![swagger](./images/swagger.png)
