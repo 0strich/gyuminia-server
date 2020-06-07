@@ -7,10 +7,62 @@ Authorization: Bearer
 
 ### 
 
-POST http://localhost:5001/users/login
+POST http://localhost:5001/users/signin
 Content-Type: application/json
 
 {
-  "email": "gee8196@gmail.com",
+  "username": "0strich",
   "password":"1234"
 }
+
+###
+
+POST http://localhost:5001/users/token
+Content-Type: application/json
+
+{
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImdlZTgxOTZAZ21haWwuY29tIiwicGFzc3dvcmQiOiIxMjM0IiwiaWF0IjoxNTkwODM4Mjk3LCJleHAiOjE1OTQ0MzgyOTd9.RZfBJheCLgdZZdEvqas1OCxB7BK-LDex2e7KVeo6Z4c"
+}
+
+###
+
+POST http://localhost:5001/characters/info
+Content-Type: application/json
+
+{
+  "userId": 1
+}
+
+###
+
+POST http://localhost:5001/characters/newChar
+Content-Type: application/json
+
+{
+  "userId": 1 ,
+  "characterName":"test"
+}
+
+###
+
+POST http://localhost:5001/users/signup
+Content-Type: application/json
+
+{
+  "username" : "test1",
+  "password" : "1132",
+  "email" : "gee8196"
+}
+
+###
+
+GET http://localhost:5001/users/check
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IjBzdHJpY2giLCJlbWFpbCI6ImdlZTgxOTZAZ21haWwuY29tIiwiaWF0IjoxNTkxMjQ3MTk5LCJleHAiOjE1OTE2MDcxOTl9.7Sxg6LUV3HNaJUZNymPjnvi1PxQSdlbtw1oLaZGnQfo
+# Authorization: Bearer 
+
+###
+
+GET http://localhost:5001/characters/rank
+Content-Type: application/json
+# Authorization: Bearer 
