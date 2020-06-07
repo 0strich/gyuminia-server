@@ -12,7 +12,7 @@ module.exports = {
       if (info[0]) {
         res.status(200).send(info);
       } else {
-        res.status(404).send({});
+        res.status(404).send({ success: false });
       }
     } catch (err) {
       console.log(err);
