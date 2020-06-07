@@ -36,10 +36,10 @@ module.exports = {
           );
           res.status(200).send({
             success: true,
-            accessToken,
-            refreshToken,
             userId: account.id,
             username: account.username,
+            accessToken,
+            refreshToken,
           });
         } else {
           res.status(404).send({ success: false, message: "not exist" });
